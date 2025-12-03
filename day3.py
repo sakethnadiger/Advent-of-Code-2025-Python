@@ -6,6 +6,7 @@ with open("input.txt") as f:
 
 
 # Part 1
+
 total = 0
 for bank in lines:
     largest = 0
@@ -21,18 +22,18 @@ for bank in lines:
             
     total += largest
     
-# print(total)
+print(total)
 
 
 # Part 2
 
-def findLargest(string, final, dist):
-    if len(final) == 12:
+def findLargest(string, final, dist, length):
+    if len(final) == length:
         return final
     
     big = max([int(c) for c in string[:len(string) - dist + 1]])
     bigPos = string.find(str(big))
-    return findLargest(string[bigPos + 1:], final + str(big), dist - 1)
+    return findLargest(string[bigPos + 1:], final + str(big), dist - 1, length)
 
 
 # Find largest first digit which is not less than 12 digits away from end - prioritise first occurence
@@ -43,6 +44,6 @@ def findLargest(string, final, dist):
 total = 0
 
 for bank in lines:
-    total += int(findLargest(bank, "", 12))
+    total += int(findLargest(bank, "", 12, 12))
     
 print(total)
