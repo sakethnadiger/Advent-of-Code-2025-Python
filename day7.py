@@ -7,23 +7,23 @@ with open("input.txt") as f:
 beams = {lines[0].index("S")}
 
 # Part 1
-# count = 0
+count = 0
 
-# for l in lines:
-#     if "^" not in l:
-#         continue
+for l in lines:
+    if "^" not in l:
+        continue
     
-#     for i in range(len(l)):
-#         if i in beams and l[i] == "^":
-#             count += 1
-#             beams.remove(i)
-#             beams.add(i + 1)
-#             beams.add(i - 1)
+    for i in range(len(l)):
+        if i in beams and l[i] == "^":
+            count += 1
+            beams.remove(i)
+            beams.add(i + 1)
+            beams.add(i - 1)
     
-#     print(sorted(beams))
+    print(sorted(beams))
     
 
-# print(count)
+print(count)
 
 # Part 2
 
